@@ -1,7 +1,7 @@
+from PIL import Image,ImageDraw
+
+
 import math
-
-
-
 
 
 class Color:
@@ -24,6 +24,9 @@ class Color:
 
 	def get(self):
 		return (self.r,self.g,self.b)
+
+	def getfloat(self):
+		return (self.r/255,self.g/255,self.b/255)
 
 	@staticmethod
 	def rgb_to_hsv(r, g, b):
