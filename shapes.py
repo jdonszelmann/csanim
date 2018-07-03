@@ -1,10 +1,12 @@
 
-from PIL import Image,ImageDraw
+from PIL import Image,ImageDraw,ImageFont
 
-
+from io import BytesIO
 from subprocess import Popen, PIPE
 from colors import Color
 from framemanager import FrameManager,FrameObject
+import sys,os
+from generate_latex import generate_latex
 
 class Ellipse(FrameObject):
 	def init(self,color,x,y,rx,ry=None):
@@ -54,3 +56,33 @@ class Polygon(FrameObject):
 	def draw(self,image):
 		draw = ImageDraw.Draw(image)
 		draw.polygon(self.coords, fill=self.color.get())
+
+class Text(FrameObject):
+	def init(self,color,size,x,y,text,align="left"):
+		self.color = color
+		self.size = size
+		self.x = x
+		self.y = y
+		self.text = text
+		self.align = align
+
+	def draw(self,image):
+		draw = ImageDraw.Draw(image)
+		draw.multiline_text((self.x,self.y), self.text, fill=self.color.get(), font=ImageFont.truetype("./recources/fonts/Monospace.ttf".format(PATH), self.size), anchor=None, spacing=0, align=self.align)
+
+class LatexText(FrameObject):
+	def init(self,color,x,y,scale,text,quality=10):
+		self.color = color
+		self.x = x
+		self.y = y
+		self.scale = scale
+		self.text = text
+
+		self.quality = quality
+
+	def draw(self,image):
+		im = generate_latex(self.text,self.color.get(),self.quality)
+	
+		image.paste(im.resize((int(im.width*self.scale/self.quality),int(im.height*self.scale/self.quality)),Image.BILINEAR), (self.x,self.y))
+		# draw = ImageDraw.Draw(image)
+		# draw.multiline_text((self.x,self.y), self.text, fill=self.color.get(), font=ImageFont.truetype("./recources/fonts/Monospace.ttf".format(PATH), self.size), anchor=None, spacing=0, align=self.align)
