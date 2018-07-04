@@ -39,6 +39,7 @@ def generate_latex(texstring,color,quality):
 	\documentclass{{standalone}}
 	\pagestyle{{empty}}
 	\usepackage{{xcolor}}
+	\usepackage{{amsmath}}
 
 	\definecolor{{main}}{{RGB}}{{ {},{},{} }}
 

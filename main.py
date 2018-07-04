@@ -24,4 +24,33 @@ def second1(manager):
 		r'\int_0^1 e^x\,dx' #latex
 		))
 
-f.run(60*2)
+@f.second(3)	
+def second3(manager):
+
+	# manager.draw(Polygon(120,Color(128, 0, 0),600,600,1000,1000,900,1000))
+	manager.draw(LatexText(120,
+		Color(255,255,255),
+		100,100,#x,y
+		1.5,#scale
+		r"""
+		M =
+		\begin{bmatrix}
+		 1&  3& \\ 
+		 2&  4& 
+		\end{bmatrix}
+		"""
+		))
+
+@f.second(5)	
+def second5(manager):
+
+	# manager.draw(Polygon(120,Color(128, 0, 0),600,600,1000,1000,900,1000))
+	manager.draw(LatexText(120,
+		Color(255,255,255),
+		100,100,#x,y
+		1.5,#scale
+		r'f\left ( x \right ) = \sqrt[3]{x}' #latex
+		))
+
+
+f.run(60*10)
