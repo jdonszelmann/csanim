@@ -27,8 +27,8 @@ def second3(manager):
 		r"""
 		M =
 		\begin{bmatrix}
-		 1&  3& \\ 
-		 2&  4& 
+		1& 3&\\ 
+		2& 4&
 		\end{bmatrix}
 		"""
 		))
