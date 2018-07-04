@@ -28,5 +28,7 @@ cd csanim
 ./install.sh
 ```
 
-
 ## usage:
+
+to start, import csanim with 
+`python from csanim import *`

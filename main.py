@@ -1,14 +1,6 @@
 #!/usr/bin/python3
 
-from PIL import Image,ImageDraw
-
-
-import sys,os
-from colors import Color
-from framemanager import FrameManager
-from shapes import *
-
-
+from csanim import *
 
 #https://en.wikipedia.org/wiki/List_of_common_resolutions
 f = FrameManager(60,1920,1080,"video.mp4") #1080p 60fps
