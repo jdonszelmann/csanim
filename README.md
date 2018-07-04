@@ -7,7 +7,7 @@ It's like manim (the program Grant uses for his channel 3blue1brown) but for com
 Csanim generates videos. Many test videos can be found on our youtube channel [thekeychain](https://www.youtube.com/channel/UCUvhgZVZjBGB5NvLH_M-n9g)
 
 
-##installation:
+## installation:
 
 To install csanim, clone this repository, and run the install.sh script. (commands below) 
 This script is only tested for Ubuntu.
